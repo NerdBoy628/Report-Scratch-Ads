@@ -1,7 +1,11 @@
-import scratchattach as sa
 import os,sys
+try:
+    import scratchattach as sa
+except:
+    os.system('pip install scratchattach')
+    import scratchattach as sa
 session = sa.login("username", "password")
-
+# Replace with your actual credentials
 def report(ps,cs):
     for p in range(ps):
         id = session.explore_projects(mode="trending", language="en", limit=ps, offset=0)[p].id
